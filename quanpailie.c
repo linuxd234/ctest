@@ -1,12 +1,12 @@
+/*求全排列
+ *2020/3/9
+ *linuxd234
+*/
 #include<stdio.h>
 int main(){
     int swap(char *,char *);
     int pailie(int,int,char *);
     char a[]={'1','2','3','4'};
-    //swap(&a[0],&a[1]);
-    /*for(int i=0;i<4;i++){
-        printf("%d",a[i]);
-    }*/
     pailie(0,4,a);
     return 0;
 }
