@@ -3,15 +3,15 @@
 int main()
 {
     int n;
-    int **array = NULL;
+    int **array = NULL;//指向指针的指针，可以用来引用二维数组，但意义有区别
     printf("input the number n:\n");
     scanf("%d", &n);
 
     //定义动态数组
-    array = (int **)calloc(n, sizeof(int *));
+    array = (int **)calloc(n, sizeof(int *));//申请元素为n个一维指针数组
     for (int i = 0; i < n; i++)
     {
-        array[i] = (int *)malloc(sizeof(int) * n);
+        array[i] = (int *)malloc(sizeof(int) * n);//为一维指针素组元素申请空间
     }
     //动态数组初始化
     for (int i = 0; i < n; i++)
@@ -24,17 +24,16 @@ int main()
 
     //主体
     int num = 1; //1-n
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)//总共要进行的回数
     {
         int increment = 2 * i - 1; //对角线镜像元素增量
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < i; j++)//每回要赋值的元素个数，第一次1对第二次2对
         {
             array[i - j - 1][n - j - 1] = num + increment; //先给镜像赋值
             array[n - j - 1][i - j - 1] = num++;           //最后一行时会覆盖前条
             increment = increment - 2;
-            //printf("yyy---");
         }
-        num = num + i;
+        num = num + i;//1...3...7
     }
     //打印
     for (int i = 0; i < n; i++)
