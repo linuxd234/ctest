@@ -1,4 +1,7 @@
 #include <stdio.h>
+/**
+ * 输入一个整形数组，统计该数组内0-9数字的个数
+*/
 int count[10] = {0}; //全部初化为零
 int main()
 {
@@ -16,30 +19,31 @@ int main()
         i++;
     }
     printf("\n--------------------------------------------\n");
-    int j=0;
-     while (input[j]!=0)
-         {
-             int temp=input[j];
-              while(temp!=0){
-                  int c=temp%10;//获得末尾数
-                  charSum(c);
-                  temp=temp/10;//截取前一位
-              }
-              j++;
-         }
-
-        for (int i = 0; i < 10; i++)
+    int j = 0;
+    while (input[j] != 0)
+    {
+        int temp = input[j];
+        while (temp != 0)
         {
-            if(count[i]!=0){
-                printf("%d:%d;\n",i,count[i]);
-            }            
+            int c = temp % 10; //获得末尾数
+            charSum(c);
+            temp = temp / 10; //截取前一位
         }
-        
+        j++;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (count[i] != 0)
+        {
+            printf("%d:%d;\n", i, count[i]);
+        }
+    }
 
     return 0;
 }
 
-int charSum(int c)
+int charSum(int c) //传入分解后的一位0-9数字，进行统计
 {
     switch (c)
     {
